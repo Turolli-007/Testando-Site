@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parabéns LILI!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff5f7;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(255,182,193,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(173,216,230,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(221,160,221,0.2) 0%, transparent 50%);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Patas de gatinho flutuando */
+        .paw {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.15;
+            animation: float 15s infinite ease-in-out;
+            user-select: none;
+        }
+
+        .paw:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .paw:nth-child(2) { top: 20%; right: 15%; animation-delay: 2s; }
+        .paw:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 4s; }
+        .paw:nth-child(4) { bottom: 10%; right: 10%; animation-delay: 6s; }
+        .paw:nth-child(5) { top: 50%; left: 5%; animation-delay: 8s; }
+        .paw:nth-child(6) { top: 60%; right: 5%; animation-delay: 10s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            box-shadow: 
+                0 10px 40px rgba(255,182,193,0.3),
+                0 0 0 4px rgba(255,255,255,0.5);
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .cat-emoji {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 {
+            color: #ff8fab;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .btn-click {
+            background-color: #ff8fab;
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.3rem;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 
+                0 4px 15px rgba(255,143,171,0.4),
+                0 0 0 3px rgba(255,255,255,0.3) inset;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-click:hover {
+            background-color: #ff7096;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 
+                0 8px 25px rgba(255,143,171,0.5),
+                0 0 0 3px rgba(255,255,255,0.3) inset;
+        }
+
+        .btn-click:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .btn-click::after {
+            content: '🐾';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+        }
+
+        .message {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            background-color: #ffe4ec;
+            border-radius: 20px;
+            border: 3px dashed #ff8fab;
+            animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            80% { transform: scale(1.1); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .message h2 {
+            color: #e83e8c;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .message p {
+            color: #c71585;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .message .cats {
+            font-size: 3rem;
+            margin-top: 15px;
+            animation: celebrate 1s infinite alternate;
+        }
+
+        @keyframes celebrate {
+            0% { transform: scale(1) rotate(-5deg); }
+            100% { transform: scale(1.2) rotate(5deg); }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: confetti-fall 3s linear forwards;
+            pointer-events: none;
+        }
+
+        @keyframes confetti-fall {
+            0% { 
+                transform: translateY(-100px) rotate(0deg); 
+                opacity: 1; 
+            }
+            100% { 
+                transform: translateY(100vh) rotate(720deg); 
+                opacity: 0; 
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Patas de gatinho flutuando no fundo -->
+    <div class="paw">🐾</div>
+    <div class="paw">🐾</div>
+    <div class="paw">🐾</div>
+    <div class="paw">🐾</div>
+    <div class="paw">🐾</div>
+    <div class="paw">🐾</div>
+
+    <div class="container">
+        <span class="cat-emoji">🐱</span>
+        <h1>Olá! Tenho uma surpresa para você...</h1>
+        <button class="btn-click" onclick="showMessage()">Click aqui</button>
+        
+        <div id="message" class="message">
+            <h2>🎉 Parabéns! 🎉</h2>
+            <p>Parabens por passar no vestibular LILI</p>
+            <div class="cats">🐱💖🎓✨🐈</div>
+        </div>
+    </div>
+
+    <script>
+        function showMessage() {
+            const message = document.getElementById('message');
+            const button = document.querySelector('.btn-click');
+            
+            // Esconde o botão
+            button.style.display = 'none';
+            
+            // Mostra a mensagem
+            message.style.display = 'block';
+            
+            // Cria confetes
+            createConfetti();
+            
+            // Toca um som de celebração (opcional - usando Web Audio API)
+            playCelebrationSound();
+        }
+
+        function createConfetti() {
+            const colors = ['#ff8fab', '#ffb3c6', '#ffc8dd', '#bde0fe', '#cdb4db', '#ffafcc'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    confetti.style.width = (Math.random() * 10 + 5) + 'px';
+                    confetti.style.height = (Math.random() * 10 + 5) + 'px';
+                    
+                    // Alguns confetes são emojis de gatinho
+                    if (Math.random() > 0.7) {
+                        confetti.style.backgroundColor = 'transparent';
+                        confetti.innerHTML = ['🐱', '🐈', '💖', '✨', '🎓'][Math.floor(Math.random() * 5)];
+                        confetti.style.fontSize = '1.5rem';
+                        confetti.style.width = 'auto';
+                        confetti.style.height = 'auto';
+                    }
+                    
+                    document.body.appendChild(confetti);
+                    
+                    // Remove o confete após a animação
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 4000);
+                }, i * 50);
+            }
+        }
+
+        function playCelebrationSound() {
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                
+                // Cria uma nota alegre
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime); // C5
+                oscillator.frequency.setValueAtTime(659.25, audioContext.currentTime + 0.1); // E5
+                oscillator.frequency.setValueAtTime(783.99, audioContext.currentTime + 0.2); // G5
+                oscillator.frequency.setValueAtTime(1046.50, audioContext.currentTime + 0.3); // C6
+                
+                gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.5);
+            } catch (e) {
+                console.log('Audio não suportado');
+            }
+        }
+    </script>
+</body>
+</html>
+
