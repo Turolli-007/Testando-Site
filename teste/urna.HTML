@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Urna Eletrônica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="urna">
+
+<h1>Urna Eletrônica</h1>
+
+<h2>Escolha seu candidato</h2>
+
+
+<div class="candidato">
+
+<img src="imagens/candidato1.jpg">
+
+<h3>João Silva</h3>
+
+<p>Número: 10</p>
+
+<button onclick="votar('João Silva')">
+Votar
+</button>
+
+</div>
+
+
+
+<div class="candidato">
+
+<img src="imagens/candidato2.jpg">
+
+<h3>Maria Souza</h3>
+
+<p>Número: 20</p>
+
+<button onclick="votar('Maria Souza')">
+Votar
+</button>
+
+</div>
+
+
+<h2 id="resultado"></h2>
+
+
+</div>
+
+
+<audio id="audio">
+<source src="audio/confirmado.mp3">
+</audio>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
